@@ -15,7 +15,7 @@
 # docker build "$PWD" --file ./Dockerfile.pluginbuilder --build-arg commit="$(git rev-parse --short HEAD)" --build-arg version=v2.1.1 -t heroiclabs/nakama-pluginbuilder:2.1.1
 # docker build "$PWD" --file ./Dockerfile.pluginbuilder --build-arg commit="$(git rev-parse --short HEAD)" --build-arg version="v2.1.1-$(git rev-parse --short HEAD)" -t heroiclabs/nakama-prerelease:"2.1.1-$(git rev-parse --short HEAD)"
 
-FROM golang:1.13.0-alpine3.10 as builder
+FROM golang:1.13.0-buster as builder
 
 MAINTAINER Heroic Labs <support@heroiclabs.com>
 
@@ -29,8 +29,6 @@ LABEL description="A support container to build Go code for Nakama server's runt
 ENV GOOS linux
 ENV GOARCH amd64
 ENV CGO_ENABLED 1
-
-RUN apk --no-cache add ca-certificates gcc musl-dev git
 
 WORKDIR /builder
 
