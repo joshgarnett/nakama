@@ -26,7 +26,7 @@ ENV CGO_ENABLED 1
 
 RUN apk --no-cache add ca-certificates gcc musl-dev git && \
     git config --global advice.detachedHead false && \
-    git clone --quiet --no-checkout https://github.com/heroiclabs/nakama /go/build/nakama
+    git clone --quiet --no-checkout https://github.com/joshgarnett/nakama.git /go/build/nakama
 
 WORKDIR /go/build/nakama
 RUN git checkout --quiet "$commit" && \
