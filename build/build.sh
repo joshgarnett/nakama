@@ -31,8 +31,7 @@ if [ -z "${COMMIT}" ]; then
 fi
 
 pushd "$(dirname "$0")"/golang
-    docker build . --file ./Dockerfile --no-cache
-        -t golang:1.13.0-alpine3.9
+    docker build . --file ./Dockerfile --no-cache -t golang:1.13.0-alpine3.9
 popd
 
 pushd "$(dirname "$0")"
