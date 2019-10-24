@@ -41,7 +41,7 @@ pushd "$(dirname "$0")"
 popd
 
 pushd "$(dirname "$0")"/pluginbuilder
-    docker build . --file ./Dockerfile.alpine --no-cache --build-arg commit="${COMMIT}" \
+    docker build . --file ./Dockerfile --no-cache --build-arg commit="${COMMIT}" \
         --build-arg version="v${VERSION}-${COMMIT}" \
         -t heroiclabs/nakama-pluginbuilder:"${VERSION}-alpine3.9-${COMMIT}"
 popd
